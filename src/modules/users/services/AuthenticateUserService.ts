@@ -1,9 +1,9 @@
 import { getRepository } from "typeorm";
-import User from "../entities/User";
+import User from "../infra/typeorm/entities/User";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
-import authConfig from "../../../config/auth";
-import AppError from "../../../shared/errors/AppError";
+import authConfig from "@config/auth";
+import AppError from "@shared/errors/AppError";
 interface Request {
   email: string;
   password: string;
@@ -23,7 +23,7 @@ class AuthenticateUserService {
       throw new AppError("Incorrect email or password combination.", 401);
     }
 
-    const passwordMatched = await compare(password, user.password = "");
+    const passwordMatched = await compare(password, (user.password = ""));
 
     if (!passwordMatched) {
       throw new AppError("Incorrect email or password combination.", 401);
