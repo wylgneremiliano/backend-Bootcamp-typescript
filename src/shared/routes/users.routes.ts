@@ -1,11 +1,10 @@
 import { Router } from 'express'
-import CreateUserService from '../services/CreateUserService'
+import CreateUserService from '../../modules/users/services/CreateUserService'
 const usersRouter = Router()
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'
 import multer from 'multer'
-import uploadConfig from '../config/upload'
-import UpdateAvatarUserService from '../services/UpdateUserAvatarService'
-import UpdateUserAvatarService from '../services/UpdateUserAvatarService'
+import uploadConfig from '../../config/upload'
+import UpdateUserAvatarService from '../../modules/users/services/UpdateUserAvatarService'
 const upload = multer(uploadConfig)
 // SoC: Separation of Concerns (Separação de preocupações)
 // DTO - Date Tranfer Object 
